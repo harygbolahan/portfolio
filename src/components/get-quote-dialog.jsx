@@ -311,7 +311,7 @@ Thank you!`;
               <Button 
                 type="submit" 
                 disabled={isSubmitting} 
-                className="bg-gradient-to-r from-design-accent1 to-design-accent2 hover:from-design-accent1/90 hover:to-design-accent2/90 text-white"
+                className="bg-black text-white"
               >
                 {isSubmitting ? "Submitting..." : "Submit & Continue on WhatsApp"}
               </Button>

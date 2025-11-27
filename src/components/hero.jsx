@@ -13,12 +13,15 @@ export default function Hero() {
   const [dots, setDots] = useState([])
 
   useEffect(() => {
-    // Generate random dots only on client side
-    const dotsArray = Array.from({ length: 50 }).map((_, i) => ({
+    // Generate random dots only on client side - increased from 50 to 150
+    const dotsArray = Array.from({ length: 150 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
-      color: i % 3 === 0 ? "#FF5E5B" : i % 3 === 1 ? "#00CECB" : "#FFED66"
+      size: Math.random() * 3 + 1,
+      color: i % 3 === 0 ? "#FF5E5B" : i % 3 === 1 ? "#00CECB" : "#FFED66",
+      animationDelay: Math.random() * 5,
+      animationDuration: Math.random() * 3 + 2
     }))
     setDots(dotsArray)
   }, [])
@@ -73,8 +76,8 @@ export default function Hero() {
             (dot.x / 100) * heroRef.current.offsetWidth,
             (dot.y / 100) * heroRef.current.offsetHeight
           ) : 1000
-          const size = Math.max(2, 5 - distance / 100)
-          const opacity = Math.max(0.1, 0.5 - distance / 1000)
+          const size = Math.max(dot.size, 8 - distance / 100)
+          const opacity = Math.max(0.2, 0.8 - distance / 1000)
 
           return (
             <circle
@@ -84,10 +87,71 @@ export default function Hero() {
               r={size}
               fill={dot.color}
               opacity={opacity}
+              style={{
+                animation: `float ${dot.animationDuration}s ease-in-out infinite`,
+                animationDelay: `${dot.animationDelay}s`
+              }}
             />
           )
         })}
       </svg>
+
+      {/* Floating sparkles effect */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {Array.from({ length: 30 }).map((_, i) => (
+          <motion.div
+            key={`sparkle-${i}`}
+            className="absolute w-1 h-1 bg-white rounded-full"
+            initial={{
+              x: `${Math.random() * 100}%`,
+              y: `${Math.random() * 100}%`,
+              opacity: 0,
+              scale: 0
+            }}
+            animate={{
+              y: [`${Math.random() * 100}%`, `${Math.random() * 100}%`],
+              opacity: [0, 1, 0],
+              scale: [0, 1.5, 0]
+            }}
+            transition={{
+              duration: Math.random() * 3 + 2,
+              repeat: Number.POSITIVE_INFINITY,
+              delay: Math.random() * 5,
+              ease: "easeInOut"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Confetti particles */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {Array.from({ length: 40 }).map((_, i) => (
+          <motion.div
+            key={`confetti-${i}`}
+            className="absolute"
+            style={{
+              width: Math.random() * 8 + 4,
+              height: Math.random() * 8 + 4,
+              backgroundColor: i % 3 === 0 ? "#FF5E5B" : i % 3 === 1 ? "#00CECB" : "#FFED66",
+              borderRadius: Math.random() > 0.5 ? "50%" : "0%",
+              left: `${Math.random() * 100}%`,
+            }}
+            initial={{ y: -20, rotate: 0, opacity: 0 }}
+            animate={{
+              y: "110vh",
+              rotate: Math.random() * 360,
+              opacity: [0, 1, 1, 0],
+              x: [0, Math.random() * 100 - 50, Math.random() * 100 - 50]
+            }}
+            transition={{
+              duration: Math.random() * 5 + 5,
+              repeat: Number.POSITIVE_INFINITY,
+              delay: Math.random() * 8,
+              ease: "linear"
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container mx-auto px-4 z-10">
         <motion.div

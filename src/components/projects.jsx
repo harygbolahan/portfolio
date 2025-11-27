@@ -5,19 +5,18 @@ import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowUpRight, Github, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
 const projects = [
   {
-    title: "FinTrack",
+    title: "PocketFi",
     description:
-      "A comprehensive financial tracking application for personal and small business use. Features include expense tracking, budget planning, and financial reporting.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
-    liveUrl: "https://fintrack.example.com",
-    githubUrl: "https://github.com/example/fintrack",
+      "Modern financial infrastructure platform providing seamless payment APIs, virtual accounts, and comprehensive financial tools to help businesses collect, manage, and disburse funds efficiently. Features include admin dashboard for complete financial oversight.",
+    image: "/projects/pocketfi.png",
+    tags: ["React", "Node.js", "Payment APIs", "Virtual Accounts", "Admin Dashboard"],
+    liveUrl: "https://pocketfi.ng/",
     textColorClass: "text-design-accent1",
     bgColorClass: "bg-design-accent1",
     bgGradientClass: "from-design-accent1/20",
@@ -28,13 +27,12 @@ const projects = [
     badgeBorderClass: "border-design-accent1/20",
   },
   {
-    title: "EduConnect",
+    title: "Eterna Guardians",
     description:
-      "An e-learning platform connecting Nigerian students with tutors. Includes video conferencing, resource sharing, and progress tracking features.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS", "WebRTC"],
-    liveUrl: "https://educonnect.example.com",
-    githubUrl: "https://github.com/example/educonnect",
+      "Comprehensive personal safety application with real-time GPS tracking, emergency SOS alerts, safety check-ins, and 24/7 monitoring. Features include automatic emergency notifications to contacts, live location sharing, anti-theft protection, and complete admin dashboard for safety management.",
+    image: "/projects/eternaguardians.png",
+    tags: ["React", "GPS Tracking", "Real-time Alerts", "WebRTC", "Admin Dashboard"],
+    liveUrl: "https://eternaguardians.com/",
     textColorClass: "text-design-accent2",
     bgColorClass: "bg-design-accent2",
     bgGradientClass: "from-design-accent2/20",
@@ -45,13 +43,12 @@ const projects = [
     badgeBorderClass: "border-design-accent2/20",
   },
   {
-    title: "AgriTech Dashboard",
+    title: "BPayment",
     description:
-      "A dashboard for agricultural data visualization and analysis, helping farmers make data-driven decisions for crop management.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "D3.js", "Python", "Django", "Redis"],
-    liveUrl: "https://agritech.example.com",
-    githubUrl: "https://github.com/example/agritech",
+      "Secure payment gateway and financial solutions platform offering payment processing, virtual accounts, QR payments, and payment links. Features 99.9% uptime, flexible settlement options, and comprehensive admin dashboard for transaction management and analytics.",
+    image: "/projects/bpayment.png",
+    tags: ["React", "Payment Gateway", "Virtual Accounts", "QR Payments", "Admin Dashboard"],
+    liveUrl: "https://bpayment.co/",
     textColorClass: "text-design-accent3",
     bgColorClass: "bg-design-accent3",
     bgGradientClass: "from-design-accent3/20",
@@ -62,13 +59,12 @@ const projects = [
     badgeBorderClass: "border-design-accent3/20",
   },
   {
-    title: "MediConnect",
+    title: "Boomgator AI",
     description:
-      "A healthcare application connecting patients with doctors for remote consultations and appointment scheduling.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React Native", "Firebase", "Node.js", "Express", "MongoDB"],
-    liveUrl: "https://mediconnect.example.com",
-    githubUrl: "https://github.com/example/mediconnect",
+      "AI-powered property management system featuring automated task management, AI chat for instant guest responses, intelligent review monitoring, and smart booking optimization. Includes comprehensive admin dashboard for complete property operations oversight.",
+    image: "/projects/boomgator.png",
+    tags: ["AI/ML", "React", "Automation", "Property Management", "Admin Dashboard"],
+    liveUrl: "https://ai.boomgator.com/",
     textColorClass: "text-design-accent1",
     bgColorClass: "bg-design-accent1",
     bgGradientClass: "from-design-accent1/20",
@@ -77,6 +73,38 @@ const projects = [
     badgeBgClass: "bg-design-accent1/10",
     badgeTextClass: "text-design-accent1",
     badgeBorderClass: "border-design-accent1/20",
+  },
+  {
+    title: "BPay",
+    description:
+      "Nigeria's #1 bill payment platform trusted by over 5 million users. Pay electricity, airtime, data, cable TV, internet bills and more instantly. Features cross-platform native Android and iOS applications with admin dashboard for complete payment infrastructure management.",
+    image: "/projects/bpay.png",
+    tags: ["React Native", "Flutter", "Payment Processing", "Mobile Apps", "Admin Dashboard"],
+    liveUrl: "https://bpay.ng/",
+    textColorClass: "text-design-accent2",
+    bgColorClass: "bg-design-accent2",
+    bgGradientClass: "from-design-accent2/20",
+    borderColorClass: "border-design-accent2/20",
+    hoverBgClass: "hover:bg-design-accent2/10",
+    badgeBgClass: "bg-design-accent2/10",
+    badgeTextClass: "text-design-accent2",
+    badgeBorderClass: "border-design-accent2/20",
+  },
+  {
+    title: "Newtimeplug",
+    description:
+      "Comprehensive bill payment application offering instant airtime recharge, data bundles, cable TV subscriptions (DStv, GOtv, Startimes), electricity bill payments, and airtime-to-cash services. Complete user dashboard redesign with enhanced UX and 24/7 customer support.",
+    image: "/projects/newtimeplug.png",
+    tags: ["React", "Payment Integration", "UI/UX Design", "Dashboard", "Real-time Processing"],
+    liveUrl: "https://app.newtimeplug.com",
+    textColorClass: "text-design-accent3",
+    bgColorClass: "bg-design-accent3",
+    bgGradientClass: "from-design-accent3/20",
+    borderColorClass: "border-design-accent3/20",
+    hoverBgClass: "hover:bg-design-accent3/10",
+    badgeBgClass: "bg-design-accent3/10",
+    badgeTextClass: "text-design-accent3",
+    badgeBorderClass: "border-design-accent3/20",
   },
 ]
 
@@ -210,17 +238,7 @@ export default function Projects() {
                           asChild
                         >
                           <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            Live Demo <ArrowUpRight className="ml-1 w-4 h-4" />
-                          </Link>
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className={`${project.borderColorClass} ${project.textColorClass} ${project.hoverBgClass}`}
-                          asChild
-                        >
-                          <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-1 w-4 h-4" /> Code
+                            View Project <ArrowUpRight className="ml-1 w-4 h-4" />
                           </Link>
                         </Button>
                       </div>
@@ -246,9 +264,8 @@ export default function Projects() {
                 <button
                   key={index}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    index === activeIndex ? "bg-design-accent1" : "bg-design-accent1/20"
-                  }`}
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${index === activeIndex ? "bg-design-accent1" : "bg-design-accent1/20"
+                    }`}
                   aria-label={`Go to project ${index + 1}`}
                 />
               ))}
@@ -303,17 +320,7 @@ export default function Projects() {
                       asChild
                     >
                       <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        Live Demo <ArrowUpRight className="ml-1 w-4 h-4" />
-                      </Link>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className={`${project.borderColorClass} ${project.textColorClass} ${project.hoverBgClass}`}
-                      asChild
-                    >
-                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-1 w-4 h-4" /> Code
+                        View Project <ArrowUpRight className="ml-1 w-4 h-4" />
                       </Link>
                     </Button>
                   </div>
@@ -334,8 +341,8 @@ export default function Projects() {
             className="rounded-full border-design-accent3 text-design-accent3 hover:bg-design-accent3/10"
             asChild
           >
-            <Link href="https://github.com/harygbolahan" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 w-4 h-4" /> View More Projects on GitHub
+            <Link href="#contact">
+              <ArrowUpRight className="mr-2 w-4 h-4" /> Get In Touch For More Projects
             </Link>
           </Button>
         </motion.div>

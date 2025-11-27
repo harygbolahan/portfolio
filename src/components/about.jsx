@@ -167,7 +167,7 @@ export default function About() {
               <div className="relative w-full max-w-md mx-auto aspect-square rounded-2xl overflow-hidden shadow-xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-design-accent1/20 via-transparent to-design-accent2/20 z-10"></div>
                 <Image
-                  src="/placeholder.svg?height=600&width=600"
+                  src="/projects/Me.png"
                   alt="Mubarak Oyekanmi"
                   width={600}
                   height={600}
